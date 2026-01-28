@@ -1,0 +1,43 @@
+services:
+  app:
+    build: .
+    container_name: medrem_backend
+    ports:
+      - "5001:5001"
+    env_file:
+      - .env
+    # MAPPING JAM HOST KE CONTAINER
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    environment:
+      - TZ=Asia/Jakarta
+    depends_on:
+      - db
+
+  db:
+    # GANTI: Pake postgres standar (Debian-based), jangan -alpine
+    image: postgres:15
+    container_name: medication_db
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Jakarta
+      - PGTZ=Asia/Jakarta
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflare_tunnel
+    restart: always
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    command: tunnel --no-autoupdate run --protocol http2
+
+volumes:
+  postgres_data:

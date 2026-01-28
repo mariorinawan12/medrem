@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "medication-reminder-app",
+    "slug": "medication-reminder-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "projectId": "5945192b-2ae0-4b2f-846c-97bc6b9edf90",
+    "assetBundlePatterns": [
+      "**/*",
+      "assets/fonts/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "manifest": "./public/manifest.json",
+      "themeColor": "#4CAF50",
+      "backgroundColor": "#ffffff",
+      "name": "MedReminder",
+      "shortName": "MedRem",
+      "description": "Never miss your medication with smart reminders",
+      "display": "standalone",
+      "orientation": "portrait",
+      "scope": "/",
+      "startUrl": "/auth/login",
+      "prefer32BitLoadables": false,
+      "appleIcon": "./public/apple-touch-icon.png",
+      "appleStatusBarStyle": "black-translucent",
+      "appleMobileWebAppCapable": true
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

@@ -1,0 +1,39 @@
+# ========================
+# Node
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Environment files
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# Docker / Database
+# ========================
+postgres_data/
+*.pid
+
+# ========================
+# Sequelize
+# ========================
+config/config.json
+
+# ========================
+# OS / Editor
+# ========================
+.DS_Store
+.vscode/
+.idea/
+
+# ========================
+# Build / Cache
+# ========================
+dist/
+build/
+coverage/
